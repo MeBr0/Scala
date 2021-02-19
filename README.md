@@ -15,3 +15,4 @@ employing various design patterns for software development.
 ## Course calendar
 
 - [week3](week3) - basis scala syntax
+- [week4](week4) - calculator on FSM

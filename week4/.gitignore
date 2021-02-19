@@ -1,0 +1,15 @@
+# Intellij IDEA
+.idea
+*.iml
+
+# Bloop and metals
+.bsp
+
+# sbt
+target/
+build/
+project/
+bin/
+
+# JVM
+*.class
