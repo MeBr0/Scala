@@ -1,7 +1,6 @@
 package com.mebr0
 
-import scala.collection.mutable
-import scala.collection.mutable.ArrayBuffer
+import scala.collection.mutable.{ArrayBuffer, ListBuffer}
 
 /**
  * Class with solutions Leetcode
@@ -85,15 +84,63 @@ object Solution {
    * https://leetcode.com/problems/the-k-weakest-rows-in-a-matrix/
    */
   def kWeakestRows(mat: Array[Array[Int]], k: Int): Array[Int] = {
-    // Todo: solve this
+    mat.zipWithIndex.map(row => (row._1.sum, row._2)).sortBy(row => (row._1, row._2)).map(_._1).slice(0, k)
   }
 
   /**
    * https://leetcode.com/problems/find-positive-integer-solution-for-a-given-equation/
    */
   def findSolution(customfunction: CustomFunction, z: Int): List[List[Int]] = {
-    val result: List[List[Int]] = List()
+    def search(value: Int, min: Int, max: Int): List[List[Int]] = {
+      if (min > max) {
+        return List.empty
+      }
 
-    
+      val mid = (min + max) / 2
+      val result = customfunction.f(mid, value)
+
+      if (result == z) {
+        List(List(mid, value))
+      }
+      else if (result > z) {
+        search(value, min, mid - 1)
+      }
+      else {
+        search(value, mid + 1, max)
+      }
+    }
+
+    (1 to 1000).flatMap(value => search(value, 1, 1000)).toList
+  }
+
+  /**
+   * https://leetcode.com/problems/intersection-of-two-arrays/
+   */
+  def intersection(nums1: Array[Int], nums2: Array[Int]): Array[Int] = {
+    nums1.intersect(nums2).distinct
+  }
+
+  /**
+   * https://leetcode.com/problems/build-an-array-with-stack-operations/
+   */
+  def buildArray(target: Array[Int], n: Int): List[String] = {
+    val result: ListBuffer[String] = ListBuffer()
+    var i = 0
+    var j = 1
+
+    while (j <= n && i < target.length) {
+      result.addOne("Push")
+
+      if (j != target(i)) {
+        result.addOne("Pop")
+      }
+      else {
+        i += 1
+      }
+
+      j += 1
+    }
+
+    result.toList
   }
 }
