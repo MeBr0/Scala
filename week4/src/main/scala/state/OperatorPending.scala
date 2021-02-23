@@ -3,22 +3,21 @@ package state
 
 import reader.Reader
 import transition.operator.BaseOperator
-import transition.{NonZero, Zero}
+import transition.{NonZero, Separator}
 
-case class OperatorPending(first: String, op: BaseOperator, second: String) extends BaseState {
-
-  override def next(): BaseState = {
-    println("OperatorPending")
-
-    Reader.read() match {
-      case Zero() =>
-        AccumulateDigit(first, op, second)
-      case NonZero(digit) =>
-        AccumulateDigit(first, op, digit.toString)
-      case _ =>
-        OperatorPending(first, op, second)
-    }
-  }
+/**
+ * State of defining operator
+ */
+case class OperatorPending(first: String, op: BaseOperator) extends BaseState {
 
   override def isFinal: Boolean = false
+
+  override def next(): BaseState = Reader.read() match {
+    case NonZero(digit) =>
+      AccumulateDigitSecond(first, op, digit.toString)
+    case Separator() =>
+      AccumulateDecimalSecond(first, op, "0.")
+    case _ =>
+      OperatorPending(first, op)
+  }
 }

@@ -2,15 +2,21 @@ package com.mebr0
 package reader
 
 import transition._
-import transition.operator.{Addition, Difference, Division, Multiplication}
+import transition.operator.{Addition, Substitution, Division, Multiplication}
 
 import scala.io.StdIn
 
+/**
+ * Object for reading char and return appropriate Transition
+ */
 object Reader {
 
   val nonZero: List[Char] = List('1', '2', '3', '4', '5', '6', '7', '8', '9')
   val operations: List[Char] = List('+', '-', '*', '/')
 
+  /**
+   * Read next char and return appropriate Transition
+   */
   def read(): Transition = {
     val char = StdIn.readChar()
 
@@ -18,14 +24,14 @@ object Reader {
       Zero()
     }
     else if (nonZero.contains(char)) {
-      NonZero(char.toInt - 48)
+      NonZero(char.toInt - 48)  // ASCII shift
     }
-    else if (operations.contains(char)) {
+    else if (operations.contains(char)) { // Binary operations
       char match {
         case '+' =>
           Operator(Addition.apply())
         case '-' =>
-          Operator(Difference.apply())
+          Operator(Substitution.apply())
         case '*' =>
           Operator(Multiplication.apply())
         case '/' =>

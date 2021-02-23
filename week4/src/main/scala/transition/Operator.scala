@@ -3,6 +3,7 @@ package transition
 
 import transition.operator.BaseOperator
 
-case class Operator(operator: BaseOperator) extends Transition {
-
-}
+/**
+ * Transition of reading binary operator
+ */
+case class Operator(operator: BaseOperator) extends Transition

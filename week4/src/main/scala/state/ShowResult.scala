@@ -3,13 +3,15 @@ package state
 
 import transition.operator.BaseOperator
 
+/**
+ * Final state of showing result
+ */
 case class ShowResult(first: String, op: BaseOperator, second: String) extends BaseState {
 
-  override def next(): BaseState = {
-    println(first, op, second)
-
-    ShowResult(first, op, second)
-  }
-
+  /**
+   * Final state!
+   */
   override def isFinal: Boolean = true
+
+  override def next(): BaseState = ShowResult(first, op, second)
 }

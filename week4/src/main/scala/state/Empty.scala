@@ -2,25 +2,21 @@ package com.mebr0
 package state
 
 import reader.Reader
-import transition.operator.BaseOperator
-import transition.{NonZero, Separator, Zero}
+import transition.{NonZero, Separator}
 
-
-case class Empty(first: String, op: BaseOperator, second: String) extends BaseState {
-
-  override def next(): BaseState = {
-    println("Empty")
-    Reader.read() match {
-      case Zero() =>
-        Empty(first, op, second)
-      case NonZero(x: Int) =>
-        AccumulateDigit(x.toString, op, second)
-      case Separator() =>
-        AccumulateDecimalDigit("0.", op, second)
-      case _ =>
-        Empty(first, op, second)
-    }
-  }
+/**
+ * Initial state without any stored data
+ */
+case class Empty() extends BaseState {
 
   override def isFinal: Boolean = false
+
+  override def next(): BaseState = Reader.read() match {
+    case NonZero(x: Int) =>
+      AccumulateDigit(x.toString)
+    case Separator() =>
+      AccumulateDecimal("0.")
+    case _ =>
+      Empty()
+  }
 }
