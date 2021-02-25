@@ -1,0 +1,7 @@
+name := "week5"
+
+version := "0.1"
+
+scalaVersion := "2.13.5"
+
+idePackagePrefix := Some("com.mebr0")
