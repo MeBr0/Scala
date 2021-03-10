@@ -17,3 +17,4 @@ employing various design patterns for software development.
 - [week3](week3) - basis scala syntax
 - [week4](week4) - calculator on FSM
 - [week5](week5) - FP, PF, HoF, Case Class, Companion Object
+- [week5 part2](week5_2) - Akka, Typed Actors
