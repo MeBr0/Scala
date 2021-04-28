@@ -14,7 +14,8 @@ employing various design patterns for software development.
 
 ## Course calendar
 
-- [week3](week3) - basis scala syntax
-- [week4](week4) - calculator on FSM
+- [week3](week3) - Basis scala syntax
+- [week4](week4) - Calculator on FSM
 - [week5](week5) - FP, PF, HoF, Case Class, Companion Object
 - [week5 part2](week5_2) - Akka, Typed Actors
+- [week9](week9) - Akka HTTP, JSON Serialization
