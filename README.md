@@ -19,3 +19,4 @@ employing various design patterns for software development.
 - [week5](week5) - FP, PF, HoF, Case Class, Companion Object
 - [week5 part2](week5_2) - Akka, Typed Actors
 - [week9](week9) - Akka HTTP, JSON Serialization
+- [week10](week10) - Validators, Directives
