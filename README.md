@@ -21,3 +21,4 @@ employing various design patterns for software development.
 - [week9](week9) - Akka HTTP, JSON Serialization
 - [week10](week10) - Validators, Directives
 - [week11](week11) - Heroku Deploy
+- [week12](week12) - Database, Cache

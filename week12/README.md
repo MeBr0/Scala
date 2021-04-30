@@ -1,49 +1,38 @@
-# Week 12 - Tasks API
+# Week 12 - Tiny URL
 
 ## Test
 
-Run `GET localhost:8080/tasks` for listing all tasks
-
-Response:
-```json
-[
-  {
-    "id": "8bf98241-f25e-4318-be22-4f963f71219d",
-    "title": "qwe",
-    "description": "qwe",
-    "done": false
-  }
-]
-```
-
-Run `POST localhost:8080/tasks` for creating tasks
+Run `POST localhost:8080/urls` for shorting url
 
 Request:
 ```json
 {
-  "title": "qwe",
-  "description": "qwe"
+  "original": "https://facebook.com",
+  "alias": "face",
+  "expiresAt": "01-05-2021"
 }
 ```
 
 Response:
 ```json
 {
-    "id": "8bf98241-f25e-4318-be22-4f963f71219d",
-    "title": "qwe",
-    "description": "qwe",
-    "done": false
+    "alias": "face",
+    "original": "https://facebook.com",
+    "createdAt": "29-04-2021",
+    "expiresAt": "01-05-2021"
 }
 ```
 
-## Build
+Run `DELETE localhost:8080/tasks/{alias}` for deleting alias
 
-Build docker image with `sbt docker:publishLocal`
+Response:
+```json
+{
+  "alias": "face",
+  "original": "https://facebook.com",
+  "createdAt": "29-04-2021",
+  "expiresAt": "01-05-2021"
+}
+```
 
-Run docker container as usual
-
-## Deploy
-
-First, need to build docker image
-
-After run `./deploy.sh {heroku-app} {image-id} {token}`
+Run `GET localhost:8080/short/{alias}` for redirecting with alias
