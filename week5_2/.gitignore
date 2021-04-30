@@ -8,7 +8,6 @@
 # sbt
 target/
 build/
-project/
 bin/
 
 # JVM
