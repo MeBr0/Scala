@@ -23,5 +23,5 @@ object Boot extends App {
     Behaviors.empty
   }
 
-  val system = ActorSystem[Nothing](rootBehavior, "CalculatorServer")
+  val system = ActorSystem[Nothing](rootBehavior, "TaskServer")
 }
