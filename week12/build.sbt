@@ -30,5 +30,5 @@ libraryDependencies ++= Seq(
   "ch.qos.logback" % "logback-classic" % "1.2.3",
 
   "io.monix" %% "shade" % "1.10.0",
-  "org.mongodb.scala" %% "mongo-scala-driver" % "4.2.3",
+  "org.postgresql" % "postgresql" % "9.3-1102-jdbc41",
 )

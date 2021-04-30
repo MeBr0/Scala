@@ -1,6 +1,6 @@
 package com.mebr0
 package dto
 
-import akka.http.scaladsl.model.DateTime
+case class URL(alias: String, original: String, createdAt: String, expiresAt: String)
 
-case class URL(hash: String, original: String, createdAt: DateTime, expiresAt: DateTime)
+case class URLCreate(original: String, alias: String = null, expiresAt: String)
