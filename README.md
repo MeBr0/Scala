@@ -22,3 +22,4 @@ employing various design patterns for software development.
 - [week10](week10) - Validators, Directives
 - [week11](week11) - Heroku Deploy
 - [week12](week12) - Database, Cache
+- [final](final) - Final Examination
